@@ -1,0 +1,16 @@
+{
+  "name": "music-cooler",
+  "version": "1.0.0",
+  "description": "Play local music files",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^6.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
