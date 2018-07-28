@@ -11,13 +11,21 @@ export default (props) =>
         onClick={props.play}
         text='Play'
     />
-
     <Button
         id={'pause'}
         onClick={props.pause}
         text='Pause'
     />
-
+    <Button
+        id={'next'}
+        onClick={props.nextTrack}
+        text='Next'
+    />
+    <Button
+        id={'previous'}
+        onClick={props.previousTrack}
+        text='Previous'
+    />
     <Input
         id="file-upload" 
         label="Add directory or song files"

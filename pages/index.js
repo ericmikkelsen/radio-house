@@ -17,22 +17,14 @@ export default class Index extends Component {
     // this sets the 
     this.setState({ browser: true });
     this.URL = window.URL || window.webkitURL
-    this.audio = document.createElement("audio");
-    this.play = () => {
-      this.audio.play()
-    }
-    this.pause = () => {
-      this.audio.pause()
-    }
-    this.nextTrack = () => {
-      this.playTrack( (this.state.track + 1) )
-    }
+    this.audio = document.createElement('audio');
 
-    this.lastTrack = () => {
-      this.playTrack( ( this.state.track + 1 ) )
-    }
+    // songs
+    this.play = () => { this.audio.play() }
+    this.pause = () => { this.audio.pause() }
+    this.nextTrack = () => { this.playTrack( ( this.state.track + 1 ) ) }
+    this.previousTrack = () => { this.playTrack( ( this.state.track + 1 ) ) }
   }
-  
   playTrack = ( index ) => {
     if( this.state.browser ){
       const file = this.state.files[index]
@@ -41,7 +33,6 @@ export default class Index extends Component {
       this.play()
     }
   }
-
   loadFiles = ( event ) => {
     let newFiles = Object.values( event.target.files )
     let oldFiles = this.state.files
@@ -56,6 +47,8 @@ export default class Index extends Component {
           loadFiles={this.loadFiles} 
           play={this.play}
           pause={this.pause}
+          nextTrack={this.nextTrack}
+          previousTrack={this.previousTrack}
         />
         { this.state.files.length > 0 && 
           <TrackList 
