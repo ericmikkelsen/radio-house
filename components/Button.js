@@ -5,5 +5,5 @@ export default (props) =>
         onClick={ props.onClick || undefined }
         type={ props.type || undefined }
     >
-        {props.text}
+        {props.text || props.children}
     </button>
