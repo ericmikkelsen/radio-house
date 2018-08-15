@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "next export"
+    "export": "next export",
+    "deploy": "git push origin `git subtree split --prefix out master`:gh-pages --force"
   },
   "author": "",
   "license": "ISC",
