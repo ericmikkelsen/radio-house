@@ -4,7 +4,9 @@
   "description": "Play local music files",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "export": "next export"
   },
   "author": "",
   "license": "ISC",
