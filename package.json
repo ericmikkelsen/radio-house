@@ -12,9 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-preact": "0.0.7",
     "id3-parser": "^2.0.0",
     "id3js": "github:43081j/id3",
     "next": "^6.1.1",
+    "preact": "^8.3.0",
+    "preact-compat": "^3.18.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   }
