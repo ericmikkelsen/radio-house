@@ -57,7 +57,6 @@ export default class Index extends Component {
   loadFiles = ( event ) => {
     let newFiles = Object.values( event.target.files ).map(this.addID3TagToFile);
     Promise.all(newFiles).then( newFiles => {
-      console.log(newFiles);
       let oldFiles = this.state.files
       let files = oldFiles.concat(newFiles)
       this.setState( { files:  files } )
