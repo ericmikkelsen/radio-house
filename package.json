@@ -1,5 +1,5 @@
 {
-  "name": "music-cooler",
+  "name": "radio-house",
   "version": "1.0.0",
   "description": "Play local music files",
   "main": "index.js",
@@ -14,7 +14,6 @@
   "dependencies": {
     "@zeit/next-preact": "0.0.7",
     "id3-parser": "^2.0.0",
-    "id3js": "github:43081j/id3",
     "next": "^6.1.1",
     "preact": "^8.3.0",
     "preact-compat": "^3.18.2",
