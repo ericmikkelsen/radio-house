@@ -1,3 +1,4 @@
 export default (str) => {
-    return str.toLowerCase().replace(' ', '-');
+    let kebab = str.toLowerCase().replace( new RegExp(" ", "g"),'-'  )
+    return kebab;
 }
