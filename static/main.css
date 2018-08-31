@@ -1,13 +1,13 @@
 :root {
     /* color */
     --pink: #fcc;
-    --red-medium: #a55;
-    --blue-dark: #336;
-    --blue-light: #ccf;
-    --yellow-light: #ffd;
+    --blue-light: #eef;
+    --pink-dark: #c08;
+    --blue-dark: #335;
+    --yellow: #ffd;
 
-    --background: #fff;
-    --foreground: var(--blue-dark);
+    --background: #ffd;
+    --foreground: var(--pink-dark);
 
     /* space */
     --s100: 1px;
@@ -60,7 +60,7 @@
     box-sizing: border-box;
     color: var(--foreground);
     margin: 0;
-    padding: 0;
+    padding: 0 var(--s400) 0 0;
 }
 body {
     margin: 0;
@@ -87,8 +87,9 @@ input,
 * {
     background: transparent;
     box-sizing: inherit;
-    font: var(--f400);
     color: inherit;
+    font: var(--f400);
+    scroll-behavior: smooth;
 }
 label,
 button,
@@ -111,11 +112,9 @@ h1, h2 {
     display: flex;
     margin: var(--s300) 0 0;
     padding:  0;
-    overflow: hidden;
     position: sticky;
     top: var(--s300);
     width: var(--s700);
-    float: left;
     flex-direction: column;
 }
 
@@ -132,7 +131,7 @@ h1, h2 {
 }
 
 .Control:focus-within {
-    background: var(--foreground);
+    background: var(--foreground); 
     color: var(--background);
 }
 
@@ -156,14 +155,20 @@ h1, h2 {
     -webkit-appearance: none;
 }
 
+.Layout {
+    display: flex;
+    flex-direction: row-reverse;   
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .TrackList {
-    padding: 0;
+    padding: 0 0 var(--s900);
     list-style-type: none;
 }
 
 .TrackList__wrapper {
-    overflow: hidden;
-    padding: var(--s400) 0;
+    padding: 0;
 }
 
 .TrackList__wrapper > * {
@@ -176,7 +181,7 @@ h1, h2 {
 
 .TrackList > * {
     margin: 0;
-    padding: var(--s400) var(--s400) var(--s600);
+    padding: var(--s500) var(--s500) var(--s400);
     position: relative;
 }
 
@@ -186,12 +191,11 @@ h1, h2 {
 
 .TrackList__currentlyPlaying {
     font: var(--f300);
-    font-weight: 600;
     height: var(--s300);
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 0;left: var(--s400);
+    top: var(--s400);left: var(--s500);right: var(--s400);
     vertical-align: middle;
 }
 
@@ -209,9 +213,15 @@ h1, h2 {
     font: var(--f500);
     border: none;
     padding: 0;
-    text-align: left;
+    text-align: inherit;
     margin-left: var(--s-100);
-    max-width: var(--s1000);
+    -webkit-appearance: none;
+}
+
+@media screen and (min-width: 32em) {
+    .Track {
+            font: var(--f600);
+    }
 }
 
 .Track:focus {

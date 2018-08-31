@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 export default (props) =>
-  <main>
+  <main class="Layout">
     <Head>
       <title>Radio House</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
