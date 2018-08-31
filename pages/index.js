@@ -27,6 +27,7 @@ export default class Index extends Component {
     this.previousTrack = () => {this.playTrack((this.state.track - 1))}
     
     this.audio.addEventListener( 'ended', this.nextTrack );
+    this.audio.volume = .1;
   }
   playTrack = ( index = undefined ) => {
     if( this.state.browser ){
