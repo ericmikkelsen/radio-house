@@ -186,6 +186,7 @@ h1, h2 {
 
 .TrackList__currentlyPlaying {
     font: var(--f300);
+    font-weight: 600;
     height: var(--s300);
     margin: 0;
     padding: 0;
