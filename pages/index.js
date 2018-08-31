@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Controls from '../components/Controls'
 import Layout from '../components/Layout' 
 import TrackList from '../components/TrackList' 
+import toKebabCase from '../modules/toKebabCase'
 import universalParse from 'id3-parser/lib/universal'
 
 export default class Index extends Component {
@@ -33,6 +34,7 @@ export default class Index extends Component {
     if( this.state.browser ){
       this.setState({track: index})
       const file = this.state.files[index]
+      location.hash = "#" + file.id;
       this.audio.src = this.URL.createObjectURL(file)
       this.play()
     }
@@ -43,10 +45,13 @@ export default class Index extends Component {
     return file;
   }
 
-  addID3TagToFile = ( file ) => {
+  prepFile = ( file, i ) => {
     return universalParse( file )
     .then(tag => {
         file.id3 = tag
+        let name = toKebabCase(file.id3.title)
+        let trackNumber = i + 1;
+        file.id = `track-${trackNumber}-${name}`
         return file
     })
     .catch(err => {
@@ -55,11 +60,13 @@ export default class Index extends Component {
   }
 
   loadFiles = ( event ) => {
-    let newFiles = Object.values( event.target.files ).map(this.addID3TagToFile);
-    Promise.all(newFiles).then( newFiles => {
-      let oldFiles = this.state.files
-      let files = oldFiles.concat(newFiles)
+
+    let newFiles = Object.values( event.target.files )
+    let oldFiles = this.state.files;
+    let files = oldFiles.concat(newFiles).map(this.prepFile);
+    Promise.all(files).then( files => {
       this.setState( { files:  files } )
+      this.playTrack(0);
     })
   }
 

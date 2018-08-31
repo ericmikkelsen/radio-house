@@ -5,7 +5,7 @@ export default (props) =>
     <section className="TrackList__wrapper">
         <ul className="TrackList">
             { props.files.map( (file, index) => 
-                <li key={ toCamelCase('track ' + file.name) } >
+                <li key={ toCamelCase(`track ${file.name}`) } id={ file.id } >
                     {props.currentTrack === index && 
                     <p className="TrackList__currentlyPlaying">
                         Currently playing
