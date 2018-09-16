@@ -1,11 +1,13 @@
+import Head from 'next/head'
+
 const title = 'Radio House'
 const color = '#cc0088'
 
 export default (props) =>
-    <React.Fragment>
-        <title>Radio House</title>
-        <link rel="stylesheet" href="/static/main.css"/>
+    <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="stylesheet" href="/static/main.css"/>
+        <title>{title}</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="/static/meta/apple-touch-icon.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/static/meta/favicon-32x32.png"/>
@@ -28,4 +30,4 @@ export default (props) =>
                 <path id="previous-icon" d="M 6,2.125 6,5.875 4,4.625 4,5.875 1,4 4,2.125 4,3.375 6,2.125 Z"/>
             </defs>
         </svg>
-    </React.Fragment>
+    </Head>
