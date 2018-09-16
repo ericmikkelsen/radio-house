@@ -1,7 +1,9 @@
 import {Component} from 'react'
+
 import Controls from '../components/Controls'
 import Layout from '../components/Layout' 
-import TrackList from '../components/TrackList' 
+import TrackList from '../components/TrackList'
+
 import toKebabCase from '../modules/toKebabCase'
 import universalParse from 'id3-parser/lib/universal'
 
@@ -11,7 +13,7 @@ export default class Index extends Component {
     this.state = {
       browser: false,
       files: [],
-      track: 0,
+      track: undefined,
     };
   }
 
@@ -66,7 +68,9 @@ export default class Index extends Component {
     let files = oldFiles.concat(newFiles).map(this.prepFile);
     Promise.all(files).then( files => {
       this.setState( { files:  files } )
-      this.playTrack(0);
+      if(this.state.track = undefined){
+        this.playTrack(0);
+      }
     })
   }
 
