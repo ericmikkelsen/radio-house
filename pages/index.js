@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import TrackList from '../components/TrackList'
 
 import toKebabCase from '../modules/toKebabCase'
+import registerServiceWorker from '../modules/registerServiceWorker'
 import universalParse from 'id3-parser/lib/universal'
 
 export default class Index extends Component {
@@ -19,6 +20,7 @@ export default class Index extends Component {
 
   componentDidMount (){
     // this sets the 
+    registerServiceWorker();
     this.setState({ browser: true });
     this.URL = window.URL || window.webkitURL
     this.audio = document.createElement('audio')

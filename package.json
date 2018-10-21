@@ -4,15 +4,19 @@
   "description": "Play local music files",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "export": "next export",
+    "server": "./node_modules/.bin/http-server ./out",
+    "dev": "npm run build && npm run server",
+    "move:serviceWorker": "cp ./static/service-worker.js ./out/service-worker.js",
+    "build": "npm run build:next && npm run build:export && npm run move:serviceWorker",
+    "build:next": "./node_modules/.bin/next build",
+    "build:export": "./node_modules/.bin/next export",
     "deploy": "git push origin `git subtree split --prefix out master`:gh-pages --force"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@zeit/next-preact": "0.0.7",
+    "http-server": "^0.11.1",
     "id3-parser": "^2.0.0",
     "next": "^6.1.1",
     "preact": "^8.3.0",
