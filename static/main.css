@@ -11,15 +11,16 @@
 
     /* space */
     --s100: 1px;
-    --s200: .375rem;
+    --s200: .5rem;
     --s300: .75rem;
-    --s400: 1.5rem;
-    --s500: 3rem;
-    --s600: 4.5rem;
-    --s700: 7.5rem;
-    --s800: 12rem;
-    --s900: 19.5rem;
-    --s1000: 31.5rem;
+    --s400: 1rem;
+    --s400-plus: max( calc(var(--s300) + 4vw ), var(--s400) );
+    --s500: 2rem;
+    --s600: 3rem;
+    --s700: 5rem;
+    --s800: 8rem;
+    --s900: 13rem;
+    --s1000: 21rem;
 
     --s-100: -1px;
     --s-200: -.375rem;
@@ -37,11 +38,11 @@
     /* font */
 
     --f: sans-serif;
-    --f200: 200 var(--s200)/2 var(--f);
-    --f300: 300 var(--s300)/2 var(--f);
-    --f400: 400 var(--s400)/1.5 var(--f);
-    --f500: 600 var(--s500)/1.5 var(--f);
-    --f600: 900 3.6rem/1.125 var(--f);
+    --f200: 200 var(--s200)/calc(1em + .5rem) var(--f);
+    --f300: 300 var(--s400)/calc(1em + .5rem) var(--f);
+    --f400: 400 var(--s400)/calc(1em + .5rem) var(--f);
+    --f500: 600 var(--s400-plus)/calc(1em + .5rem) var(--f);
+    --f600: 900 3.6rem var(--f);
 
     /* border */
     --b: solid  var(--foreground);
@@ -51,16 +52,18 @@
     --b400: var(--s400) var(--b);
     --border: var(--b100);
 
-    font-size: calc(.75em + .375vw + .375vh);
+    font-size: max(1rem, calc(.75em + .375vw + .375vh)) ;
     font-weight: lighter;
-    line-height: 1.5;
-
-
     background: var(--background);
     box-sizing: border-box;
     color: var(--foreground);
     margin: 0;
-    padding: 0 var(--s400) 0 0;
+    padding: 0;
+}
+*,
+button {
+    line-height: calc( 1em + .5rem );
+    appearance: none;
 }
 body {
     margin: 0;
@@ -110,22 +113,21 @@ h1, h2 {
 
 .Controls {
     display: flex;
-    margin: var(--s300) 0 0;
-    padding:  0;
+    margin: var(--s500) 0 0;
+    padding:  0 5% 0 0;
     position: sticky;
-    top: var(--s300);
-    width: var(--s700);
+    top:  var(--s500);
     flex-direction: column;
 }
 
 .Controls > * {
-    margin: 0;
+    margin: 0 0 3.75vh;
 }
 
 .Control {
     border: none;
     display: block;
-    padding: var(--s300);
+    padding: 0;
     position: relative;
     text-align: center;
 }
@@ -142,7 +144,7 @@ h1, h2 {
 }
 .Control__icon {
     vertical-align: middle;
-    height: var(--s500);
+    height: var(--s400-plus);
     width: auto;
     margin: 0 auto;
 }
@@ -161,6 +163,9 @@ h1, h2 {
     justify-content: space-between;
     align-items: flex-start;
 }
+.Layout > section {
+    flex-grow: 1;
+}
 
 .TrackList {
     padding: 0 0 var(--s900);
@@ -175,13 +180,9 @@ h1, h2 {
     margin: 0;
 }
 
-.TrackList__wrapper > * + * {
-    margin-top: var(--s300);
-}
-
 .TrackList > * {
     margin: 0;
-    padding: var(--s500) var(--s500) var(--s400);
+    padding: var(--s500) 0 var(--s400) 5vw;
     position: relative;
 }
 
@@ -191,21 +192,20 @@ h1, h2 {
 
 .TrackList__currentlyPlaying {
     font: var(--f300);
-    font-weight: 600;
-    height: var(--s300);
     margin: 0;
     padding: 0;
     position: absolute;
-    top: var(--s400);left: var(--s500);right: var(--s400);
+    top: var(--s200); left: 0;
     vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
-
-.TrackList__icon {
+.TrackList__currentlyPlaying::before {
+    content: '▶';
     display: inline-block;
-    height: var(--s300);
-    vertical-align: middle;
-    width: auto;
-    margin-right: var(--s300);
+    min-width: 5vw;
+    text-align: center;
 }
 
 .Track {
@@ -216,12 +216,6 @@ h1, h2 {
     text-align: inherit;
     margin-left: var(--s-100);
     -webkit-appearance: none;
-}
-
-@media screen and (min-width: 32em) {
-    .Track {
-        font: var(--f600);
-    }
 }
 
 .Track:focus {
