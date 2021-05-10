@@ -1,7 +1,7 @@
 import Button from './Button'
 
 export default (props) =>
-    <React.Fragment>
+    <div>
         <Button
             className="Track"
             text={props.file.id3.title}
@@ -10,4 +10,4 @@ export default (props) =>
         <p className="Track__meta">
             by {props.file.id3.artist} <br/>on {props.file.id3.album}
         </p>
-    </React.Fragment>
+    </div>
