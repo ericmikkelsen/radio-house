@@ -7,6 +7,7 @@ import TrackList from '../components/TrackList'
 import toKebabCase from '../modules/toKebabCase'
 import registerServiceWorker from '../modules/registerServiceWorker'
 import * as jsmediatags from '../node_modules/jsmediatags/dist/jsmediatags.min.js'
+import cleanFileName from '../modules/cleanFileName.js'
 
 export default class Index extends Component {
   constructor(props) {
@@ -57,7 +58,7 @@ export default class Index extends Component {
             let name = toKebabCase(tag.tags.title)
             let trackNumber = i + 1
             file.id = `track-${trackNumber}-${name}`
-
+            file.id3.title = cleanFileName(file.id3.title)
             resolve(file)
           },
           onError: error =>  {
