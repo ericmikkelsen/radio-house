@@ -195,13 +195,14 @@ h1, h2 {
     color: var(--background);
     font: var(--f300);
     margin: 0;
-    padding: 0 5vw 0 0;
+    padding: 1px 5vw 0 0;
     position: absolute;
-    top: var(--s200); left: 0;
+    top: -1px; left: 0;
     vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 1.5em) 100%, 0 100%);
 }
 .TrackList__currentlyPlaying::before {
     content: '▶';
