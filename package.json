@@ -16,8 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "@zeit/next-preact": "0.0.7",
+    "babel-preset-es2015": "^6.24.1",
     "http-server": "^0.11.1",
-    "id3-parser": "^2.0.0",
+    "jsmediatags": "^3.9.7",
     "next": "^6.1.1",
     "preact": "^8.3.0",
     "preact-compat": "^3.18.2",

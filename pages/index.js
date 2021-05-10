@@ -6,7 +6,8 @@ import TrackList from '../components/TrackList'
 
 import toKebabCase from '../modules/toKebabCase'
 import registerServiceWorker from '../modules/registerServiceWorker'
-import universalParse from 'id3-parser/lib/universal'
+import * as jsmediatags from '../node_modules/jsmediatags/dist/jsmediatags.min.js'
+import cleanFileName from '../modules/cleanFileName.js'
 
 export default class Index extends Component {
   constructor(props) {
@@ -50,16 +51,21 @@ export default class Index extends Component {
   }
 
   prepFile = ( file, i ) => {
-    return universalParse( file )
-    .then(tag => {
-        file.id3 = tag
-        let name = toKebabCase(file.id3.title)
-        let trackNumber = i + 1;
-        file.id = `track-${trackNumber}-${name}`
-        return file
-    })
-    .catch(err => {
-      console.log(err)
+      return new Promise((resolve, reject) => {
+        jsmediatags.read(file, {
+          onSuccess: tag => {
+            file.id3 = tag.tags
+            let name = toKebabCase(tag.tags.title)
+            let trackNumber = i + 1
+            file.id = `track-${trackNumber}-${name}`
+            file.id3.title = cleanFileName(file.id3.title)
+            resolve(file)
+          },
+          onError: error =>  {
+            console.error(error)
+            reject(error)
+          }
+      });
     })
   }
 

@@ -191,9 +191,11 @@ h1, h2 {
 }
 
 .TrackList__currentlyPlaying {
+    background-color: var(--foreground);
+    color: var(--background);
     font: var(--f300);
     margin: 0;
-    padding: 0;
+    padding: 0 5vw 0 0;
     position: absolute;
     top: var(--s200); left: 0;
     vertical-align: middle;
