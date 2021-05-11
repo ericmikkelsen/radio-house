@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "./node_modules/.bin/http-server ./out",
-    "dev": "npm run build && npm run server",
+    "dev": "./node_modules/.bin/next",
     "move:serviceWorker": "cp ./static/service-worker.js ./out/service-worker.js",
     "build": "npm run build:next && npm run build:export && npm run move:serviceWorker",
     "build:next": "./node_modules/.bin/next build",
