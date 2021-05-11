@@ -8,7 +8,7 @@ export default (props) =>
                 <li key={ toCamelCase(`track ${file.id}`) } id={ file.id } >
                     {props.currentTrack === index && 
                     <p className="TrackList__currentlyPlaying">
-                        Currently playing
+                        Currently playing:
                     </p>}
                     <Track 
                         file={file} 
