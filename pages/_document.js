@@ -9,7 +9,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="en">
-        <Head></Head>
+        <Head>
+        </Head>
         <body> 
           {this.props.customValue}
           <Main />

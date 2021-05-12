@@ -10,11 +10,10 @@ export default (props) =>
         <title>{title}</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="/static/meta/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/static/meta/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/static/meta/favicon-16x16.png"/>
+        <link rel="shortcut icon" href="/static/meta/favicon.svg" sizes="any" type="image/svg+xml"/>
         <link rel="manifest" href="/static/meta/site.webmanifest"/>
         <link rel="mask-icon" href="/static/meta/safari-pinned-tab.svg" color={color}/>
-        <link rel="shortcut icon" href="/static/meta/favicon.ico"/>
+
         <meta name="apple-mobile-web-app-title" content={title}/>
         <meta name="application-name" content={title}/>
         <meta name="msapplication-TileColor" content={color}/>
