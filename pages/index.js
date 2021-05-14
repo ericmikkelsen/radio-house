@@ -35,7 +35,7 @@ export default class Index extends Component {
     this.audio.addEventListener( 'ended', this.nextTrack );
     this.audio.volume = .1;
   }
-  playTrack = ( index = undefined ) => {
+  playTrack = ( index ) => {
     if( this.state.browser ){
       this.setState({track: index})
       const file = this.state.files[index]
@@ -76,7 +76,7 @@ export default class Index extends Component {
     let files = oldFiles.concat(newFiles).map(this.prepFile);
     Promise.all(files).then( files => {
       this.setState( { files:  files } )
-      if(this.state.track = undefined){
+      if(this.state.track === undefined){
         this.playTrack(0);
       }
     })
