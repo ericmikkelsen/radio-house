@@ -11,7 +11,7 @@ export default (props) =>
 
         <link rel="apple-touch-icon" sizes="180x180" href="/static/meta/apple-touch-icon.png"/>
         <link rel="shortcut icon" href="/static/meta/favicon.svg" sizes="any" type="image/svg+xml"/>
-        <link rel="manifest" href="/static/meta/site.webmanifest"/>
+        <link rel="manifest" href="/static/meta/manifest.json"/>
         <link rel="mask-icon" href="/static/meta/safari-pinned-tab.svg" color={color}/>
 
         <meta name="apple-mobile-web-app-title" content={title}/>
