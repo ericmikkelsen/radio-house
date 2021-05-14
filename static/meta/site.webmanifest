@@ -9,5 +9,6 @@
     ],
     "theme_color": "#cc0088",
     "background_color": "#cc0088",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "https://radio-house.app"
 }
