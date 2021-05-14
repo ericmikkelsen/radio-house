@@ -37,11 +37,11 @@
 
     /* font */
 
-    --f: sans-serif;
-    --f200: 200 var(--s200)/calc(1em + .5rem) var(--f);
+    --f: system-ui, sans-serif;
+    --f200: 300 var(--s200)/calc(1em + .5rem) var(--f);
     --f300: 300 var(--s400)/calc(1em + .5rem) var(--f);
-    --f400: 400 var(--s400)/calc(1em + .5rem) var(--f);
-    --f500: 600 var(--s400-plus)/calc(1em + .5rem) var(--f);
+    --f400: 300 var(--s400)/calc(1em + .5rem) var(--f);
+    --f500: 800 var(--s400-plus)/calc(1em + .5rem) var(--f);
     --f600: 900 3.6rem var(--f);
 
     /* border */
