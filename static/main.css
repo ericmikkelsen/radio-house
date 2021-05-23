@@ -6,7 +6,7 @@
     --blue-dark: #335;
     --yellow: #ffd;
 
-    --background: #000;
+    --background: #333333;
     --foreground: #fff;
 
     /* space */
@@ -115,21 +115,25 @@ h1, h2 {
 .Controls {
     display: flex;
     margin: 0;
-    padding:  5%;
-    position: fixed;
+    padding: 1rem;
+    position: sticky;
     top: 0;
     bottom: 0;
     flex-direction: column;
-    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.65) 20%, rgba(0,0,0,75%) 75%);
+    background: linear-gradient(to left, #333 0%, rgba(51, 51, 51, 0.738) 19%, rgba(51, 51, 51, 0.541) 34%, rgba(51, 51, 51, 0.382) 47%, rgba(51, 51, 51, 0.278) 56.5%, rgba(51, 51, 51, 0.194) 65%, rgba(51, 51, 51, 0.126) 73%, rgba(51, 51, 51, 0.075) 80.2%, rgba(51, 51, 51, 0.042) 86.1%, rgba(51, 51, 51, 0.021) 91%, rgba(51, 51, 51, 0.008) 95.2%, rgba(51, 51, 51, 0.002) 98.2%, transparent 100%);
     z-index: 100;
+    justify-content: space-around;
 }
 
 .Controls > * {
-    margin: 0 0 1rem;
+    margin: 0
+}
+.Controls > * + * {
+    margin: 1rem 0 0;
 }
 
 .Controls > *:first-child {
-    --foreground: lightsalmon;
+    --foreground: hotpink;
 }
 .Controls > *:nth-child(2) {
     --foreground: yellow;
@@ -156,7 +160,7 @@ h1, h2 {
     flex-direction: column;
     border-radius: 100rem;
     align-items: center;
-    padding: clamp(.625rem, 3vh, 2.5rem);
+    padding: clamp(.625rem, 3.5vh, 3rem);
     justify-content: center;
 }
 
@@ -171,6 +175,7 @@ h1, h2 {
     display: block;
     font: var(--f200);
     padding: 0;
+    font-weight: 900;
 }
 .Control__icon {
     vertical-align: middle;
@@ -189,14 +194,17 @@ h1, h2 {
 
 .Layout {
     display: flex;
-    flex-direction: row-reverse;   
+    flex-direction: reverse;
     justify-content: space-between;
     align-items: flex-start;
 }
 .Layout > section {
     flex-grow: 1;
 }
-
+.Layout > menu {
+    order: 1;
+    margin-left: auto;
+}
 .TrackList {
     padding: 0 0 var(--s900);
     list-style-type: none;
@@ -253,7 +261,7 @@ h1, h2 {
     text-align: inherit;
     margin-left: var(--s-100);
     -webkit-appearance: none;
-    max-width: 20ex;
+    max-width: 30ex;
 }
 
 .Track:focus {
