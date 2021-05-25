@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 const title = 'Radio House'
-const color = '#cc0088'
+const color = '#333'
 
 export default (props) =>
     <Head>
