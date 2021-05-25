@@ -120,9 +120,9 @@ h1, h2 {
     top: 0;
     bottom: 0;
     flex-direction: column;
-    background: linear-gradient(to left, #333 0%, rgba(51, 51, 51, 0.738) 19%, rgba(51, 51, 51, 0.541) 34%, rgba(51, 51, 51, 0.382) 47%, rgba(51, 51, 51, 0.278) 56.5%, rgba(51, 51, 51, 0.194) 65%, rgba(51, 51, 51, 0.126) 73%, rgba(51, 51, 51, 0.075) 80.2%, rgba(51, 51, 51, 0.042) 86.1%, rgba(51, 51, 51, 0.021) 91%, rgba(51, 51, 51, 0.008) 95.2%, rgba(51, 51, 51, 0.002) 98.2%, transparent 100%);
     z-index: 100;
-    justify-content: space-around;
+    justify-content: flex-end;
+    min-height: 100vh;
 }
 
 .Controls > * {
@@ -160,7 +160,7 @@ h1, h2 {
     flex-direction: column;
     border-radius: 100rem;
     align-items: center;
-    padding: clamp(.625rem, 3.5vh, 3rem);
+    padding: clamp(.625rem, calc(.75vw + .75vh + .5rem), 3rem);
     justify-content: center;
 }
 
