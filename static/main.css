@@ -213,7 +213,6 @@ h1, h2 {
 
 .TrackList__wrapper {
     padding: 0;
-    overflow-x:auto;
 }
 
 .TrackList__wrapper > * {
