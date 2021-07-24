@@ -208,7 +208,7 @@ h1, h2 {
 .TrackList {
     padding: 0 0 var(--s900);
     list-style-type: none;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .TrackList__wrapper {
