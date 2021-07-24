@@ -251,6 +251,9 @@ h1, h2 {
     min-width: var(--s500);
     text-align: center;
 }
+.TrackList__currentlyPlaying--paused::before {
+    content: '';
+}
 
 .Track {
     display: inline;

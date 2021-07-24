@@ -1,8 +1,6 @@
 import Button from './Button'
 import Input from './Input'
 import Icon from './Icon'
-import toCamelCase from '../modules/toCamelCase'
-import toKebabCase from '../modules/toKebabCase'
 
 export default (props) =>
   <menu className="Controls">
@@ -47,7 +45,7 @@ export default (props) =>
             icon='pause' 
         />
     </Button>
-    <Button
+    {/* <Button
         className={'Control'}
         id={'previous'}
         onClick={props.previousTrack}
@@ -58,8 +56,8 @@ export default (props) =>
             className='Control__icon' 
             icon='previous' 
         />
-    </Button>
-    <Button
+    </Button> */}
+    {/* <Button
         className={'Control'}
         id={'next'}
         onClick={props.nextTrack}
@@ -70,5 +68,5 @@ export default (props) =>
             className='Control__icon' 
             icon='next' 
         />
-    </Button>
+    </Button> */}
   </menu>

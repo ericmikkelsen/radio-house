@@ -16,24 +16,30 @@ export default class Index extends Component {
       browser: false,
       files: [],
       track: undefined,
+      isPlaying: false
     };
   }
 
   componentDidMount (){
-    // this sets the 
     registerServiceWorker();
     this.setState({ browser: true });
     this.URL = window.URL || window.webkitURL
     this.audio = document.createElement('audio')
 
+
     // songs
-    this.play = () => { this.audio.play() }
-    this.pause = () => { this.audio.pause() }
+    this.play = () => { this.audio.play();this.state.isPlaying = true}
+    this.pause = () => { this.audio.pause();this.state.isPlaying = false}
     this.nextTrack = () => {this.playTrack((this.state.track + 1))}
+
     this.previousTrack = () => {this.playTrack((this.state.track - 1))}
-    
     this.audio.addEventListener( 'ended', this.nextTrack );
+    this.audio.addEventListener( 'pause', this.setPlaying );
+    this.audio.addEventListener( 'play', this.setPlaying );
     this.audio.volume = .1;
+  }
+  setPlaying = () => {
+    this.setState({isPlaying: !this.audio.paused})
   }
   playTrack = ( index ) => {
     if( this.state.browser ){
@@ -44,6 +50,7 @@ export default class Index extends Component {
       this.play()
     }
   }
+
 
   addID3Tags = ( file ) => {
     file.id3 = id3(file);
@@ -97,6 +104,7 @@ export default class Index extends Component {
             currentTrack={this.state.track}
             files={this.state.files}
             playTrack={this.playTrack}
+            isPlaying={this.state.isPlaying}
           />
         }
       </Layout>
