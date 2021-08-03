@@ -182,6 +182,7 @@ h1, h2 {
     height: var(--s400-plus);
     width: auto;
     margin: 0 auto;
+    flex-shrink: 0;
 }
 
 .Control__input {
