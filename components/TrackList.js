@@ -14,6 +14,7 @@ export default (props) =>
                         file={file} 
                         index={index}
                         playTrack={props.playTrack}
+                        current={props.currentTrack === index}
                     />
                 </li>
             )}

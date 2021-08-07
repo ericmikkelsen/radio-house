@@ -1,7 +1,7 @@
 import Button from './Button'
 
 export default (props) =>
-    <div>
+    <div class={props.current ? 'Track__current' : ''}>
         <Button
             className="Track"
             text={props.file.id3.title}
