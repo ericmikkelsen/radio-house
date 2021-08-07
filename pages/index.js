@@ -98,6 +98,7 @@ export default class Index extends Component {
           play={this.play}
           nextTrack={this.nextTrack}
           previousTrack={this.previousTrack}
+          isPlaying={this.state.isPlaying}
         />
         { this.state.files.length > 0 && 
           <TrackList
