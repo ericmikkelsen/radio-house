@@ -22,11 +22,13 @@ export default (props) =>
         type="file"
     />
     <Button
-        className={'Control'}
+        className={`Control ${props.isPlaying ?  'Control__active' : ''}`}
         id={'play'}
         onClick={props.play}
     >
-        <span className="Control__label">Play</span>
+        <span className={`Control__label`}>
+            {props.isPlaying ? 'Playing' : 'Play'}
+        </span>
         <Icon 
             ariaHidden='true'
             className='Control__icon' 
@@ -34,18 +36,20 @@ export default (props) =>
         />
     </Button>
     <Button
-        className={'Control'}
+        className={`Control ${props.isPlaying ? '' : 'Control__active'}`}
         id={'pause'}
         onClick={props.pause}
     >
-        <span className="Control__label">Pause</span>
+        <span className={`Control__label`}>
+            {props.isPlaying ? 'Pause' : 'Paused'}
+        </span>
         <Icon 
             ariaHidden='true'
             className='Control__icon' 
             icon='pause' 
         />
     </Button>
-    {/* <Button
+    <Button
         className={'Control'}
         id={'previous'}
         onClick={props.previousTrack}
@@ -56,8 +60,8 @@ export default (props) =>
             className='Control__icon' 
             icon='previous' 
         />
-    </Button> */}
-    {/* <Button
+    </Button>
+    <Button
         className={'Control'}
         id={'next'}
         onClick={props.nextTrack}
@@ -68,5 +72,5 @@ export default (props) =>
             className='Control__icon' 
             icon='next' 
         />
-    </Button> */}
+    </Button>
   </menu>
