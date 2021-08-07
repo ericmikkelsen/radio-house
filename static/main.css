@@ -6,8 +6,9 @@
     --blue-dark: #335;
     --yellow: #ffd;
 
-    --background: #333333;
+    --background: #2c2c2c;
     --foreground: #fff;
+    --link: #F36677;
 
     /* space */
     --s100: 1px;
@@ -132,28 +133,11 @@ h1, h2 {
     margin: clamp(.5rem, calc(3vmin + .25rem), 2rem) 0 0;
 }
 
-.Controls > *:first-child {
-    --foreground: hotpink;
-}
-.Controls > *:nth-child(2) {
-    --foreground: yellow;
-}
-.Controls > *:nth-child(3) {
-    --foreground: Chartreuse;
-}
-.Controls > *:nth-child(4) {
-    --foreground: aqua;
-}
-.Controls > *:nth-child(5) {
-    --foreground: lightblue;
-}
-
 .Control {
     align-items: center;
+    color: var(--foreground);
     aspect-ratio: 1/1;
-    background: var(--foreground);
     border-radius: 100rem;
-    color: var(--background);
     align-items: center;
     border: none;
     display: flex;
@@ -163,20 +147,26 @@ h1, h2 {
     position: relative;
     text-align: center;
     padding: clamp(.5rem, calc(3vmin + .25rem), 2rem);
+    transition: 1s backroung-color;
+    background-color: var(--background);
 }
-
+.Control:hover {
+    background-color: #111;
+    box-shadow: .25rem .25rem .25rem rgba(0,0,0,.125);
+}
 .Control:focus-within,
 .Control:focus-visible {
-    background: var(--background); 
-    color: var(--foreground);
     box-shadow: 0 0 0 0.5rem;
 }
 
 .Control__label {
     display: block;
-    font: var(--f200);
+    font: var(--f300);
     padding: 0;
-    font-weight: 900;
+    font-weight: 500;
+}
+.Control__active {
+    --foreground: var(--link);
 }
 .Control__icon {
     height: clamp(1rem, calc(1vmin + 1rem), var(--s500));
@@ -232,7 +222,7 @@ h1, h2 {
 }
 
 .TrackList__currentlyPlaying {
-    background-color: var(--foreground);
+    background-color: var(--link);
     color: var(--background);
     font: var(--f300);
     margin: 0;
@@ -258,6 +248,7 @@ h1, h2 {
 
 .Track {
     display: inline;
+    color: var(--foreground);   
     font: var(--f500);
     border: none;
     padding: 0;
@@ -269,8 +260,12 @@ h1, h2 {
 
 .Track:focus {
     outline: var(--s100) solid;
+    color: var(--background);
 }
-
+.Track__current {
+    --foreground: var(--link);
+    color: var(--foreground);
+}
 .Track__meta {
     font: var(--f400);
     margin: 0;
