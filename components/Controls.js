@@ -1,8 +1,6 @@
 import Button from './Button'
 import Input from './Input'
 import Icon from './Icon'
-import toCamelCase from '../modules/toCamelCase'
-import toKebabCase from '../modules/toKebabCase'
 
 export default (props) =>
   <menu className="Controls">
@@ -24,11 +22,13 @@ export default (props) =>
         type="file"
     />
     <Button
-        className={'Control'}
+        className={`Control ${props.isPlaying ?  'Control__active' : ''}`}
         id={'play'}
         onClick={props.play}
     >
-        <span className="Control__label">Play</span>
+        <span className={`Control__label`}>
+            {props.isPlaying ? 'Playing' : 'Play'}
+        </span>
         <Icon 
             ariaHidden='true'
             className='Control__icon' 
@@ -36,11 +36,13 @@ export default (props) =>
         />
     </Button>
     <Button
-        className={'Control'}
+        className={`Control ${props.isPlaying ? '' : 'Control__active'}`}
         id={'pause'}
         onClick={props.pause}
     >
-        <span className="Control__label">Pause</span>
+        <span className={`Control__label`}>
+            {props.isPlaying ? 'Pause' : 'Paused'}
+        </span>
         <Icon 
             ariaHidden='true'
             className='Control__icon' 
