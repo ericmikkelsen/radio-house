@@ -129,7 +129,7 @@ h1, h2 {
     margin: 0
 }
 .Controls > * + * {
-    margin: 1rem 0 0;
+    margin: clamp(.5rem, calc(3vmin + .25rem), 2rem) 0 0;
 }
 
 .Controls > *:first-child {
@@ -149,19 +149,20 @@ h1, h2 {
 }
 
 .Control {
+    align-items: center;
+    aspect-ratio: 1/1;
+    background: var(--foreground);
+    border-radius: 100rem;
+    color: var(--background);
+    align-items: center;
     border: none;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 0;
     position: relative;
     text-align: center;
-    background: var(--foreground);
-    color: var(--background);
-    aspect-ratio: 1/1;
-    flex-direction: column;
-    border-radius: 100rem;
-    align-items: center;
-    padding: clamp(.625rem, calc(.75vw + .75vh + .5rem), 3rem);
-    justify-content: center;
+    padding: clamp(.5rem, calc(3vmin + .25rem), 2rem);
 }
 
 .Control:focus-within,
@@ -178,8 +179,7 @@ h1, h2 {
     font-weight: 900;
 }
 .Control__icon {
-    vertical-align: middle;
-    height: var(--s400-plus);
+    height: clamp(1rem, calc(1vmin + 1rem), var(--s500));
     width: auto;
     margin: 0 auto;
     flex-shrink: 0;
