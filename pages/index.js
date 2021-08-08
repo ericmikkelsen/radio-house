@@ -45,6 +45,7 @@ export default class Index extends Component {
     if( this.state.browser ){
       this.setState({track: index})
       const file = this.state.files[index]
+      console.log(this.state.files)
       location.hash = "#" + file.id;
       this.audio.src = this.URL.createObjectURL(file)
       this.play()
@@ -82,10 +83,11 @@ export default class Index extends Component {
     let oldFiles = this.state.files;
     let files = oldFiles.concat(newFiles).map(this.prepFile);
     Promise.all(files).then( files => {
-      this.setState( { files:  files } )
-      if(this.state.track === undefined){
-        this.playTrack(0);
-      }
+      this.setState( { files:  files },() => {
+        if(this.state.track === undefined){
+          this.playTrack(0);
+        }
+      } )
     })
   }
 

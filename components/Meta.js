@@ -1,9 +1,11 @@
 import Head from 'next/head'
 
-const title = 'Radio House'
-const color = '#333'
 
-export default (props) =>
+
+export default (props) => {
+    const title = 'Radio House'
+    const color = '#333'
+return (
     <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="stylesheet" href="/static/main.css"/>
@@ -30,3 +32,4 @@ export default (props) =>
             </defs>
         </svg>
     </Head>
+)}

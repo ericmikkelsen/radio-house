@@ -1,13 +1,5 @@
-// next.config.js
-const withPreact = require('@zeit/next-preact')
+const withPreact = require('next-plugin-preact')
 
-module.exports = withPreact( {
-  exportPathMap: () => {
-    return {
-      '/': { page: '/' }
-    }
-  },
-  webpack: (config, options) => {
-    return config
-  }
-} )
+module.exports = withPreact({
+  /* regular next.js config options here */
+})
