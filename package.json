@@ -1,27 +1,19 @@
 {
-  "name": "radio-house",
-  "version": "1.0.0",
-  "description": "Play local music files",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/next",
-    "move:serviceWorker": "cp ./static/service-worker.js ./out/service-worker.js",
-    "build": "npm run build:next && npm run build:export && npm run move:serviceWorker",
-    "build:next": "./node_modules/.bin/next build",
-    "build:export": "./node_modules/.bin/next export",
-    "deploy": "git push origin `git subtree split --prefix out master`:gh-pages --force"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@zeit/next-preact": "0.0.7",
-    "babel-preset-es2015": "^6.24.1",
-    "http-server": "^0.11.1",
     "jsmediatags": "^3.9.7",
-    "next": "^6.1.1",
-    "preact": "^8.3.0",
-    "preact-compat": "^3.18.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
-  }
+    "next": "^10.0.0",
+    "next-plugin-preact": "^3.0.3",
+    "preact": "^10.5.5",
+    "preact-render-to-string": "^5.1.11",
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat",
+    "react-ssr-prepass": "npm:preact-ssr-prepass@^1.1.2"
+  },
+  "license": "MIT"
 }
