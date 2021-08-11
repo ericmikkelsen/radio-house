@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 export default (props) => {
     const title = 'Radio House'
-    const color = '#333'
+    const color = '#2c2c2c'
 return (
     <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

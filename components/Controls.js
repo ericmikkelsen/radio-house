@@ -1,76 +1,88 @@
 import Button from './Button'
-import Input from './Input'
 import Icon from './Icon'
-
-export default (props) =>
-  <menu className="Controls">
-    <Input
-        className={'Control'}
+import {createRef} from 'react'
+export default (props) => {
+  const fileInput = createRef();
+  
+  const handleClick = () => {
+    fileInput.current.click();
+  }
+  return (
+    <menu className="Controls">
+      <input
         id="file-upload" 
-        label={
-            <React.Fragment>
-                <span className="Control__label">Add</span>
-                <Icon 
-                    ariaHidden='true'
-                    className='Control__icon' 
-                    icon='add' 
-                />
-            </React.Fragment>
-        }
         multiple={true}
         onChange={props.loadFiles}
         type="file"
+        hidden
+        ref={fileInput}
     />
-    <Button
-        className={`Control ${props.isPlaying ?  'Control__active' : ''}`}
+      <Button
+        className="Control"
+        id={'play'}
+        onClick={handleClick}
+      >
+        <span className={`Control__label`}>
+          Add
+        </span>
+        <Icon
+          ariaHidden='true'
+          className='Control__icon'
+          icon='add'
+        />
+      </Button>
+      <Button
+        className={`Control ${props.isPlaying ? 'Control__active' : ''}`}
         id={'play'}
         onClick={props.play}
-    >
+      >
         <span className={`Control__label`}>
-            {props.isPlaying ? 'Playing' : 'Play'}
+          {props.isPlaying ? 'Playing' : 'Play'}
         </span>
-        <Icon 
-            ariaHidden='true'
-            className='Control__icon' 
-            icon='play' 
+        <Icon
+          ariaHidden='true'
+          className='Control__icon'
+          icon='play'
         />
-    </Button>
-    <Button
+      </Button>
+      <Button
         className={`Control ${props.isPlaying ? '' : 'Control__active'}`}
         id={'pause'}
         onClick={props.pause}
-    >
+      >
         <span className={`Control__label`}>
-            {props.isPlaying ? 'Pause' : 'Paused'}
+          {props.isPlaying ? 'Pause' : 'Paused'}
         </span>
-        <Icon 
-            ariaHidden='true'
-            className='Control__icon' 
-            icon='pause' 
+        <Icon
+          ariaHidden='true'
+          className='Control__icon'
+          icon='pause'
         />
-    </Button>
-    <Button
+      </Button>
+      <Button
         className={'Control'}
         id={'previous'}
         onClick={props.previousTrack}
-    >
+      >
         <span className="Control__label">Previous</span>
-        <Icon 
-            ariaHidden='true'
-            className='Control__icon' 
-            icon='previous' 
+        <Icon
+          ariaHidden='true'
+          className='Control__icon'
+          icon='previous'
         />
-    </Button>
-    <Button
+      </Button>
+      <Button
         className={'Control'}
         id={'next'}
         onClick={props.nextTrack}
-    >
+      >
         <span className="Control__label">Next</span>
-        <Icon 
-            ariaHidden='true'
-            className='Control__icon' 
-            icon='next' 
+        <Icon
+          ariaHidden='true'
+          className='Control__icon'
+          icon='next'
         />
-    </Button>
-  </menu>
+      </Button>
+    </menu>
+  )
+}
