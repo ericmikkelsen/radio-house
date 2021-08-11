@@ -147,16 +147,20 @@ h1, h2 {
     position: relative;
     text-align: center;
     padding: clamp(.5rem, calc(3vmin + .25rem), 2rem);
-    transition: 1s backroung-color;
+    transition: .15s transform;
     background-color: var(--background);
+    transform: scale(.9999999);
 }
+.Control:active,
 .Control:hover {
     background-color: #111;
     box-shadow: .25rem .25rem .25rem rgba(0,0,0,.125);
 }
-.Control:focus-within,
 .Control:focus-visible {
     box-shadow: 0 0 0 0.5rem;
+}
+.Control:active {
+    transform: scale(.85);
 }
 
 .Control__label {
@@ -167,6 +171,7 @@ h1, h2 {
 }
 .Control__active {
     --foreground: var(--link);
+    transform: scale(.85);
 }
 .Control__icon {
     height: clamp(1rem, calc(1vmin + 1rem), var(--s500));
