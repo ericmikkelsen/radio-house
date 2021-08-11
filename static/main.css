@@ -151,10 +151,16 @@ h1, h2 {
     background-color: var(--background);
     transform: scale(.9999999);
 }
-.Control:active,
-.Control:hover {
+.Control:active {
     background-color: #111;
     box-shadow: .25rem .25rem .25rem rgba(0,0,0,.125);
+    -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+    .Control:hover {
+        background-color: #111;
+        box-shadow: .25rem .25rem .25rem rgba(0,0,0,.125);
+    }
 }
 .Control:focus-visible {
     box-shadow: 0 0 0 0.5rem;
