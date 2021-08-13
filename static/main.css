@@ -146,7 +146,7 @@ h1, h2 {
     padding: 0;
     position: relative;
     text-align: center;
-    padding: clamp(.5rem, calc(3vmin + .25rem), 2rem);
+    padding: clamp(.5rem, calc(2vmin + .25rem), 2rem);
     transition: .15s transform;
     background-color: var(--background);
     transform: scale(.9999999);
