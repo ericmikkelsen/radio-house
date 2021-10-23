@@ -19,7 +19,7 @@ export default (props) => {
     />
       <Button
         className="Control"
-        id={'play'}
+        id={'Add'}
         onClick={handleClick}
       >
         <span className={`Control__label`}>
