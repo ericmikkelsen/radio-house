@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next",
     "build": "next build && next export",
     "start": "next start"
   },

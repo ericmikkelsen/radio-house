@@ -1,5 +1,7 @@
 export default (fileName) => {
     const words = {
+        'feat.': 'featuring​',
+        'Feat.': 'Featuring​',
         '(Remastered)': '',
         '(remastered)': '',
         '(REMASTERED)': '',
@@ -14,5 +16,20 @@ export default (fileName) => {
             fileName = fileName.replaceAll(oldWord, newWord);
         }
     }
-    return fileName
+    const trackNameInfo = {
+        fileName: fileName,
+        trackName: fileName,
+        meta: [],
+    }
+    const rx = /\(([^()]*)\)/g;
+    const trackParensInfo = [...fileName.matchAll(rx)];
+    if (trackParensInfo.length) {
+        trackNameInfo.trackName = fileName.split('(')[0];
+        console.log(trackParensInfo)
+        trackParensInfo.forEach(meta => {
+            trackNameInfo.meta.push(meta[1]);
+        });
+        console.log(trackNameInfo)
+    }
+    return trackNameInfo
 }
