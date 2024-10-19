@@ -63,10 +63,10 @@ export default class Index extends Component {
         jsmediatags.read(file, {
           onSuccess: tag => {
             file.id3 = tag.tags
-            let name = toKebabCase(tag.tags.title)
+            let name = toKebabCase((tag?.tags?.title || file.name))
             let trackNumber = i + 1
             file.id = `track-${trackNumber}-${name}`
-            file.id3.title = cleanFileName(file.id3.title)
+            file.id3.title = cleanFileName((file.id3.title || file.name))
             resolve(file)
           },
           onError: error =>  {

@@ -1,10 +1,12 @@
 export default (fileName) => {
+
     const words = {
         'feat.': 'featuring​',
         'Feat.': 'Featuring​',
         '(Remastered)': '',
         '(remastered)': '',
         '(REMASTERED)': '',
+        '.mp3': '',
         '/': '\/​',// zero width space after
         ';': ';​',// zero width space after
         ':': ':​',// zero width space after
